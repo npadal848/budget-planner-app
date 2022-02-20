@@ -2,13 +2,15 @@ import React from "react";
 import Home from "./components/budget/home";
 import Header from "./components/Header/header";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Header />
-      <Home />
+      <div className="container">
+        <Header />
+        <Home />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
