@@ -15,7 +15,7 @@ const customStyles = {
 
 const CategoryModel = () => {
     const [isOpeneModal, setOpenModal] = useState(true);
-   
+     
     const closeModal = () => {
         setOpenModal(false);
     }

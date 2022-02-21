@@ -9,9 +9,16 @@ class Home extends Component {
     this.state = {modalIsOpen : false}
   }
 
-   openModal = () => {
-      this.setState({modalIsOpen : true});
-  }
+
+ componentDidMount = () =>{
+
+this.openModal();
+ }
+
+ openModal = () => {
+  this.setState({modalIsOpen : true});
+}
+
   
  
 
@@ -31,15 +38,15 @@ class Home extends Component {
 
                 </div>
                 <div className="col-sm-2">
-                  <button className="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" onClick={this.openModal}>Add Category</button>
+                  <button className="btn btn-bd-download d-none d-lg-inline-block mb-3 mb-md-0 ml-md-3" onClick={(this.openModal)}>Add Category</button>
                 </div>
               </div>
             </form>
 
           </div>
         </div>
-       
-          {this.state.modalIsOpen &&  <CategoryModel OpeneModal={this.state.modalIsOpen} />}
+          {this.state.modalIsOpen &&  <CategoryModel />}
+        
     
       </div>
     );
