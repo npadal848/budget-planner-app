@@ -4,19 +4,18 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NoMatch from "./components/common/error/NoMatch";
-import Home from "./components/budget/home";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router>
-        <Routes>
-          <Route exact path="/" element={<App />} />
+        <Switch>
+          <Route exact path="/" component={App} />
           {/* <Route path="/:pathType/:pathName" element={<App />} /> */}
-          <Route path="*" element={<NoMatch />} />
-        </Routes>
+          <Route component={NoMatch} />
+        </Switch>
       </Router>
     </Provider>
   </React.StrictMode>,

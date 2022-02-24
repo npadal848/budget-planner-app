@@ -1,8 +1,10 @@
 import React from "react";
-import { addCategory, removeCategory } from "../action/budgetActions";
+import Actions from "../constant/actionTypes";
 
 const initialState = {
   monthlySalary: 50000,
+  totalSavingAmount: 0,
+  totalBudgetAmount: 0,
   allCategory: [
     {
       id: 1,
@@ -33,16 +35,21 @@ export const budgetCategoryReducer = (
   { type, payload }
 ) => {
   switch (type) {
-    case addCategory:
+    case Actions.ADD_BUDGET_CATEGORY:
+      state.allCategory.forEach((category, index) => {
+        state.totalBudgetAmount += parseInt(category.budgetAmount);
+        console.log("totalSavingAmount: ", parseInt(category.budgetAmount));
+      });
+      state.totalBudgetAmount += parseInt(payload.budgetAmount);
+      state.totalSavingAmount = state.monthlySalary - state.totalBudgetAmount;
       return {
         ...state,
-        budgetCategories: [...state.budgetCategories, payload],
+        allCategory: [...state.allCategory, payload],
       };
-    case removeCategory:
-      state.budgetCategories.filter((category) => category.id != payload.id);
+    case Actions.REMOVE_BUDGET_CATEGORY:
+      state.allCategory.filter((category) => category.id != payload.id);
       return {
         ...state,
-        // budgetCategories: [...state.budgetCategories, payload],
       };
 
     default:
