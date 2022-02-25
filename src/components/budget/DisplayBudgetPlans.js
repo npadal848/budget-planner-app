@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import { Field, reduxForm } from "redux-form";
 
 class DisplayBudgetPlans extends Component {
   constructor(props) {
@@ -13,9 +14,7 @@ class DisplayBudgetPlans extends Component {
       const { id, name, spends, budgetAmount, remainingBalance } = category;
       return (
         <tr key={id}>
-          <td>
-            <input name="name" value={name} />
-          </td>
+          <td>{name}</td>
           <td>
             <input name="spends" value={spends} />
           </td>
@@ -59,6 +58,7 @@ class DisplayBudgetPlans extends Component {
             </tr>
           </thead>
           <tbody>
+            {/* <form>{renderData}</form> */}
             {renderData}
             <tr>
               <td colSpan="3">Total Saving Amount: </td>
@@ -72,7 +72,14 @@ class DisplayBudgetPlans extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { ...state };
+  return {
+    ...state,
+    //  initialValues: state.category.allCategory
+  };
 };
 
-export default withRouter(connect(mapStateToProps)(DisplayBudgetPlans));
+export default // reduxForm({
+//   form: "display-form",
+//   enableReinitialize: true,
+// });
+withRouter(connect(mapStateToProps)(DisplayBudgetPlans));

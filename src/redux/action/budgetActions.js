@@ -13,3 +13,17 @@ export const removeCategory = (category) => {
     payload: category,
   };
 };
+
+export const updateBudget = (salary) => {
+  return {
+    type: ActionTypes.UPDATE_BUDGET,
+    payload: salary,
+  };
+};
+
+export const resetBudget = () => {
+  return {
+    type: ActionTypes.RESET_BUDGET,
+    payload: {},
+  };
+};

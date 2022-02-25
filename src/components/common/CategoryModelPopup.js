@@ -41,9 +41,24 @@ const CategoryModel = (props) => {
         <button onClick={closeModal}>close</button>
         <div>Add Category</div>
         <form onSubmit={handleSubmit(addBudgetCategory)}>
-          <Field name="name" component="input" type="text" />
-          <Field name="spends" component="input" type="number" />
-          <Field name="budgetAmount" component="input" type="number" />
+          <Field
+            name="name"
+            component="input"
+            type="text"
+            placeholder="Budget Name"
+          />
+          <Field
+            name="spends"
+            component="input"
+            type="number"
+            placeholder="Spends"
+          />
+          <Field
+            name="budgetAmount"
+            component="input"
+            type="number"
+            placeholder="Budget Amount"
+          />
           {/* <Field name="remainingBalance" component="input" type="number" /> */}
           <button type="submit">Add</button>
         </form>

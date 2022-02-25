@@ -3,13 +3,20 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import CategoryModel from "../common/CategoryModelPopup";
 import DisplayBudgetPlans from "./DisplayBudgetPlans";
+import { updateBudget, resetBudget } from "../../redux/action/budgetActions";
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalIsOpen: false };
+    this.state = { modalIsOpen: false, monthlySalary: 0 };
   }
 
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      monthlySalary: this.props.category.monthlySalary,
+    });
+  }
   onCloseModal = () => {
     this.setState({ modalIsOpen: false });
   };
@@ -19,6 +26,18 @@ class Home extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  onChangeSalary = (e) => {
+    const { dispatch } = this.props;
+    const salary = e.target.value;
+    this.setState({ ...this.state, monthlySalary: salary });
+    console.log(salary);
+    if (!isNaN(salary) && salary > 0) {
+      dispatch(updateBudget(salary));
+    } else {
+      dispatch(resetBudget());
+    }
   };
 
   render() {
@@ -33,10 +52,11 @@ class Home extends Component {
                 </label>
                 <div className="col-sm-7">
                   <input
-                    type="text"
+                    type="number"
                     className="form-control"
-                    id=""
+                    value={this.state.monthlySalary}
                     placeholder="Add Your Monthly Salary"
+                    onChange={(e) => this.onChangeSalary(e)}
                   />
                 </div>
                 <div className="col-sm-2">
