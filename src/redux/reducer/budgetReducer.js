@@ -40,13 +40,13 @@ export const budgetCategoryReducer = (
         monthlySalary: parseInt(payload),
         totalSavingAmount: parseInt(payload) - parseInt(budget2),
       };
-    case Actions.RESET_BUDGET:
-      return {
-        ...state,
-        monthlySalary: 0,
-        totalBudgetAmount: 0,
-        totalSavingAmount: 0,
-      };
+    // case Actions.RESET_BUDGET:
+    //   return {
+    //     ...state,
+    //     monthlySalary: 0,
+    //     totalBudgetAmount: 0,
+    //     totalSavingAmount: 0,
+    //   };
     default:
       return { ...state };
   }

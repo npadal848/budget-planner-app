@@ -58,7 +58,6 @@ class DisplayBudgetPlans extends Component {
             </tr>
           </thead>
           <tbody>
-            {/* <form>{renderData}</form> */}
             {renderData}
             <tr>
               <td colSpan="3">Total Saving Amount: </td>

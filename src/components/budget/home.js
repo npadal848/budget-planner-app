@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import CategoryModel from "../common/CategoryModelPopup";
+import CategoryModal from "../popUp/CategoryModalPopup";
 import DisplayBudgetPlans from "./DisplayBudgetPlans";
 import { updateBudget, resetBudget } from "../../redux/action/budgetActions";
 
@@ -32,11 +32,10 @@ class Home extends Component {
     const { dispatch } = this.props;
     const salary = e.target.value;
     this.setState({ ...this.state, monthlySalary: salary });
-    console.log(salary);
     if (!isNaN(salary) && salary > 0) {
       dispatch(updateBudget(salary));
     } else {
-      dispatch(resetBudget());
+      dispatch(updateBudget(0));
     }
   };
 
@@ -75,7 +74,7 @@ class Home extends Component {
           <DisplayBudgetPlans />
         </div>
         {this.state.modalIsOpen && (
-          <CategoryModel
+          <CategoryModal
             showModal={this.state.modalIsOpen}
             onCloseModal={this.onCloseModal}
           />

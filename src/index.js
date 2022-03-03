@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NoMatch from "./components/common/error/NoMatch";
+import Login from "./components/popUp/loginPopUp";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route exact path="/" component={App} />
+          <Route exact path="/login" component={Login} />
           {/* <Route path="/:pathType/:pathName" element={<App />} /> */}
           <Route component={NoMatch} />
         </Switch>

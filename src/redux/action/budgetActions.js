@@ -21,9 +21,9 @@ export const updateBudget = (salary) => {
   };
 };
 
-export const resetBudget = () => {
-  return {
-    type: ActionTypes.RESET_BUDGET,
-    payload: {},
-  };
-};
+// export const resetBudget = () => {
+//   return {
+//     type: ActionTypes.RESET_BUDGET,
+//     payload: {},
+//   };
+// };
