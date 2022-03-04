@@ -1,23 +1,22 @@
-
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .bd-navbar {
   min-height: 4rem;
   background-color: #563d7c;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.05),inset 0 -1px 0 rgba(0,0,0,.1);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
 }
 
 .btn-bd-download {
@@ -37,12 +36,171 @@ code {
   color: #ffe484;
   border-color: #ffe484;
 }
-.btn-bd-download:active, .btn-bd-download:hover {
+.btn-bd-download:active,
+.btn-bd-download:hover {
   color: #2a2730;
   background-color: #ffe484;
   border-color: #ffe484;
 }
 
-.div_gap{
+.div_gap {
   margin: 50px 0 0 0;
+}
+
+/* Login page styling */
+.login-modal-div .modal-header input[type="radio"] {
+  display: none;
+}
+.login-modal-div .modal-header label.tab-label {
+  display: inline-block;
+  margin: 0 0 -1px;
+  padding: 15px 25px;
+  font-weight: 600;
+  text-align: center;
+  color: #888;
+  border: 1px solid transparent;
+  width: 50%;
+  padding-bottom: 12px;
+  font-size: 20px;
+  border-bottom-width: 4px;
+  background-color: #e9ebee;
+}
+.login-modal-div .modal-header section {
+  display: none;
+  padding: 20px 30px 30px 30px;
+  border: 1px solid #ddd;
+  border-bottom: none;
+}
+
+.login-modal-div .modal-header #tab1:checked ~ #content1,
+.login-modal-div .modal-header #tab2:checked ~ #content2 {
+  display: block;
+}
+.login-modal-div .modal-header input:checked + label.tab-label {
+  color: #555;
+  border: 1px solid #ddd;
+  border-top: 2px solid #0f9d58;
+  border-bottom: 3px solid #fff;
+  background-color: #fff;
+}
+.login-modal-div form {
+  margin-bottom: 14px;
+}
+.modal-form-group {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.modal-form-group {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.login-modal-div input[type="text"],
+.login-modal-div input[type="number"],
+.login-modal-div input[type="email"],
+.login-modal-div input[type="password"] {
+  border: 1px solid #c2c7d0;
+  border-top-color: rgb(194, 199, 208);
+  border-right-color: rgb(194, 199, 208);
+  border-bottom-color: rgb(194, 199, 208);
+  border-left-color: rgb(194, 199, 208);
+  border-radius: 5px;
+  box-shadow: inset 0 1px 2px rgba(151, 159, 175, 0.1),
+    inset 0 1px 15px rgba(151, 159, 175, 0.05);
+  box-sizing: border-box;
+  color: #39424e;
+  display: inline-block;
+  line-height: 1.5em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 7px 10px 7px 40px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  width: 100%;
+}
+.login-modal-div .btn {
+  background-color: whitesmoke;
+  background-image: -webkit-gradient(
+    linear,
+    top left,
+    bottom left,
+    color-stop(0, #2bbe60),
+    color-stop(1, #0f9d58)
+  );
+  background-image: -webkit-linear-gradient(top, #2bbe60, #0f9d58);
+  background-image: linear-gradient(to bottom, #2bbe60, #0f9d58);
+  border: 1px solid #0f9d58;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08),
+    inset 0 -1px 4px rgba(151, 159, 175, 0.2);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  position: relative;
+  color: #39424e;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+}
+.login-modal-div .btn-green {
+  color: #fff;
+  background-color: #0f9d58;
+  width: 100%;
+  text-shadow: none;
+}
+
+.modal-form-group .input-icon {
+  opacity: 1;
+  position: absolute;
+  z-index: 1;
+  left: 8px;
+  top: 0px;
+  color: #979faf;
+  font-size: 26px;
+}
+
+.login-modal-div .modal-content {
+  background-color: #eff1f3;
+  margin: auto;
+  padding-top: 20px;
+  border: 1px solid #888;
+  width: 550px;
+  border-radius: 5px;
+}
+
+.login-register-div {
+  width: 100%;
+}
+
+.login-modal-div #content2 input[type="text"],
+.login-modal-div #content2 input[type="email"],
+.login-modal-div #content2 input[type="password"] {
+  padding-left: 15px;
+}
+
+.btn-modal {
+  max-width: 48.3%;
+  width: 100%;
+  margin-right: 15px;
+}
+
+.btn-modal.btn-danger {
+  background: #f2291b;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  margin-right: 0;
+}
+
+.add-category input {
+  padding-left: 15px !important;
 }

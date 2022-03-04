@@ -1,31 +1,11 @@
 import React from "react";
-import { addCategory, removeCategory } from "../action/budgetActions";
+import Actions from "../constant/actionTypes";
 
 const initialState = {
-  monthlySalary: 50000,
-  allCategory: [
-    {
-      id: 1,
-      name: "Grocery",
-      budgetAmount: 5000,
-      spends: 2000,
-      remainingBalance: 3000,
-    },
-    {
-      id: 2,
-      name: "Rent",
-      budgetAmount: 10000,
-      spends: 10000,
-      remainingBalance: 0,
-    },
-    {
-      id: 3,
-      name: "Bills",
-      budgetAmount: 5000,
-      spends: 3700,
-      remainingBalance: 1300,
-    },
-  ],
+  monthlySalary: 0,
+  totalSavingAmount: 0,
+  totalBudgetAmount: 0,
+  allCategory: [],
 };
 
 export const budgetCategoryReducer = (
@@ -33,18 +13,40 @@ export const budgetCategoryReducer = (
   { type, payload }
 ) => {
   switch (type) {
-    case addCategory:
+    case Actions.ADD_BUDGET_CATEGORY:
+      let budget1 = 0;
+      state.allCategory.forEach((category, index) => {
+        budget1 += parseInt(category.budgetAmount);
+      });
+      state.totalBudgetAmount = budget1 + parseInt(payload.budgetAmount);
+      state.totalSavingAmount = state.monthlySalary - state.totalBudgetAmount;
       return {
         ...state,
-        budgetCategories: [...state.budgetCategories, payload],
+        allCategory: [...state.allCategory, payload],
       };
-    case removeCategory:
-      state.budgetCategories.filter((category) => category.id != payload.id);
+    case Actions.REMOVE_BUDGET_CATEGORY:
+      state.allCategory.filter((category) => category.id != payload.id);
       return {
         ...state,
-        // budgetCategories: [...state.budgetCategories, payload],
       };
-
+    case Actions.UPDATE_BUDGET:
+      let budget2 = 0;
+      state.allCategory.forEach((category, index) => {
+        budget2 += parseInt(category.budgetAmount);
+      });
+      return {
+        ...state,
+        totalBudgetAmount: parseInt(budget2),
+        monthlySalary: parseInt(payload),
+        totalSavingAmount: parseInt(payload) - parseInt(budget2),
+      };
+    // case Actions.RESET_BUDGET:
+    //   return {
+    //     ...state,
+    //     monthlySalary: 0,
+    //     totalBudgetAmount: 0,
+    //     totalSavingAmount: 0,
+    //   };
     default:
       return { ...state };
   }
