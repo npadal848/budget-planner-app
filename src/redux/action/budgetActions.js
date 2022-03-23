@@ -1,22 +1,22 @@
-import ActionTypes from "../constant/actionTypes";
+import {BudgetActionTypes} from "../constant/actionTypes";
 
 export const addCategory = (category) => {
   return {
-    type: ActionTypes.ADD_BUDGET_CATEGORY,
+    type: BudgetActionTypes.ADD_BUDGET_CATEGORY,
     payload: category,
   };
 };
 
 export const removeCategory = (category) => {
   return {
-    type: ActionTypes.REMOVE_BUDGET_CATEGORY,
+    type: BudgetActionTypes.REMOVE_BUDGET_CATEGORY,
     payload: category,
   };
 };
 
 export const updateBudget = (salary) => {
   return {
-    type: ActionTypes.UPDATE_BUDGET,
+    type: BudgetActionTypes.UPDATE_BUDGET,
     payload: salary,
   };
 };

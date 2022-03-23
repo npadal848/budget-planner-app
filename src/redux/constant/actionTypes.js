@@ -1,4 +1,4 @@
-const ActionTypes = {
+export const BudgetActionTypes = {
   ADD_BUDGET_CATEGORY: "ADD_BUDGET_CATEGORY",
   REMOVE_BUDGET_CATEGORY: "ADD_BUDGET_CATEGORY",
   ADD_SPEND: "ADD_SPEND",
@@ -10,4 +10,8 @@ const ActionTypes = {
   RESET_BUDGET: "RESET_BUDGET",
 };
 
-export default ActionTypes;
+export const LoginActionTypes = {
+  LOGIN_SUCESS : "LOGIN_SUCESS",
+  LOGIN_FALILURE : "LOGIN_FALILURE"
+}
+

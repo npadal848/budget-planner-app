@@ -1,5 +1,5 @@
 import React from "react";
-import Actions from "../constant/actionTypes";
+import {BudgetActionTypes, LoginActionTypes} from "../constant/actionTypes";
 
 const initialState = {
   monthlySalary: 0,
@@ -13,7 +13,7 @@ export const budgetCategoryReducer = (
   { type, payload }
 ) => {
   switch (type) {
-    case Actions.ADD_BUDGET_CATEGORY:
+    case BudgetActionTypes.ADD_BUDGET_CATEGORY:
       let budget1 = 0;
       state.allCategory.forEach((category, index) => {
         budget1 += parseInt(category.budgetAmount);
@@ -24,12 +24,12 @@ export const budgetCategoryReducer = (
         ...state,
         allCategory: [...state.allCategory, payload],
       };
-    case Actions.REMOVE_BUDGET_CATEGORY:
+    case BudgetActionTypes.REMOVE_BUDGET_CATEGORY:
       state.allCategory.filter((category) => category.id != payload.id);
       return {
         ...state,
       };
-    case Actions.UPDATE_BUDGET:
+    case BudgetActionTypes.UPDATE_BUDGET:
       let budget2 = 0;
       state.allCategory.forEach((category, index) => {
         budget2 += parseInt(category.budgetAmount);

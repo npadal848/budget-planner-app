@@ -8,7 +8,14 @@ import { updateBudget, resetBudget } from "../../redux/action/budgetActions";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalIsOpen: false, monthlySalary: 0 };
+    this.state = { 
+      modalIsOpen: false, 
+      monthlySalary: 0,
+      isLogin : false
+     };
+     if(!this.state.isLogin){
+      props.history.push('login')
+     }
   }
 
   componentDidMount() {
@@ -26,6 +33,7 @@ class Home extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    
   };
 
   onChangeSalary = (e) => {
