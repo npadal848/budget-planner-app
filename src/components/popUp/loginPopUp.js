@@ -4,7 +4,7 @@ import userNameIcon from "../../images/login/user.svg";
 import {connect} from "react-redux"
 import {reduxForm, Field} from "redux-form"
 import { withRouter } from "react-router-dom"
-import { renderField as Input, validateSignInForm} from '../common/field-validation'
+import { renderField as Input, validate} from '../common/field-validation'
 
 const RegisterOrLoginPopup = (props) => {
 
@@ -77,5 +77,5 @@ const mapDispatchToProps = (dispatch) => {
 
 export default reduxForm({
   form: "login-sign-up-form",
-  validateSignInForm
+  validate
 })(connect(mapStateToProps, mapDispatchToProps)(RegisterOrLoginPopup));

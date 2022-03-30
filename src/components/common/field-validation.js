@@ -6,17 +6,17 @@ export const renderField = ({input, label, className, type, meta: {touched, erro
     </div>)
 }
 
-export const validateSignInForm = values =>{
+export const validate = values =>{
     console.log("values:", values)
     
     const error = {}
     const {userName, password, confirmPassword} = values;
     if(!userName){
         error.userName = "!Required"
-    }else if(userName.length>=5 || userName.length<=8 ){
+    }else if(userName.length<5 || userName.length>8 ){
         error.userName = "UserName must be 5-8 length"
-    }else if(!/\w$/i.test(userName)){
-        error.userName = "UserName should be alphanumeric"
+    }else if(!/[^a-zA-Z0-9 ]/i.test(userName)){
+        error.userName = "UserName should be alphanumeric with special character"
     }
 
     if(!password){
