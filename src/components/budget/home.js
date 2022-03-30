@@ -11,10 +11,9 @@ class Home extends Component {
     this.state = { 
       modalIsOpen: false, 
       monthlySalary: 0,
-      isLogin : false
      };
-     if(!this.state.isLogin){
-      props.history.push('login')
+     if(!this.props.login.isUserLoggedin){
+      props.history.push('/login')
      }
   }
 

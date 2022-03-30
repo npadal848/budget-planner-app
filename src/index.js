@@ -4,10 +4,11 @@ import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import NoMatch from "./components/common/error/NoMatch";
 import Login from "./components/popUp/loginPopUp";
 
+let isLogin = store.getState().login.isUserLoggedin;
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -15,7 +16,6 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/" component={App} />
           <Route exact path="/login" component={Login} />
-          {/* <Route path="/:pathType/:pathName" element={<App />} /> */}
           <Route component={NoMatch} />
         </Switch>
       </Router>

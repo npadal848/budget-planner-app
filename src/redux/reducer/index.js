@@ -8,6 +8,4 @@ export const rootReducer = combineReducers({
   category: budgetCategoryReducer,
   login : loginOrSignUpReducer,
   form: formReducer
-  
-
 });
