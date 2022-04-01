@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import NoMatch from "./components/common/error/NoMatch";
-import Login from "./components/popUp/loginPopUp";
+import RegisterOrLoginPage from "./components/popUp/registerOrLoginPopup";
 
 let isLogin = store.getState().login.isUserLoggedin;
 ReactDOM.render(
@@ -15,7 +15,7 @@ ReactDOM.render(
       <Router>
         <Switch>
           <Route exact path="/" component={App} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" component={RegisterOrLoginPage} />
           <Route component={NoMatch} />
         </Switch>
       </Router>

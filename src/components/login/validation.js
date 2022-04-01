@@ -7,10 +7,9 @@ export const renderField = ({input, label, className, type, meta: {touched, erro
 }
 
 export const validate = values =>{
-    console.log("values:", values)
     
     const error = {}
-    const {userName, password, confirmPassword} = values;
+    const {userName, password} = values;
     if(!userName){
         error.userName = "!Required"
     }else if(userName.length<5 || userName.length>8 ){
@@ -24,12 +23,6 @@ export const validate = values =>{
     }else if(password.length>=8 || password.length<=20 ){
         error.password = "Password must be 8-20 length"
     }
-    if(!confirmPassword){
-        error.confirmPassword = "!Required"
-    }else if(confirmPassword.length>=8 || confirmPassword.length<=20 ){
-        error.password = "Password must be 8-20 length"
-    }else if(password.length!==confirmPassword.length){
-        error.password = "Password and confirm password not matching"
-    }
+
     return error;
 }
